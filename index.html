@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoPremium — Преміальний Автосалон</title>
+  <!-- Іконки FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Власний детальній CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Навігація -->
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo" id="logo-btn">
+        <div class="logo-icon">AP</div>
+        <span class="logo-text">AUTO<span class="highlight">PREMIUM</span></span>
+      </div>
+
+      <nav class="nav-desktop">
+        <a href="#catalog" class="nav-link">Каталог</a>
+        <a href="#calculator" class="nav-link">Кредитування</a>
+        <a href="#tradein" class="nav-link">Trade-In</a>
+        <a href="#contacts" class="nav-link">Контакти</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="tel:+380441234567" class="phone-link">
+          <i class="fa-solid fa-phone icon-red"></i>+380 (44) 123-45-67
+        </a>
+        <button class="btn btn-primary" id="btn-open-test-drive">Тест-драйв</button>
+      </div>
+
+      <button class="burger-btn" id="burger-btn">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- Мобільне меню -->
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#catalog" class="mobile-nav-link">Каталог</a>
+      <a href="#calculator" class="mobile-nav-link">Кредитування</a>
+      <a href="#tradein" class="mobile-nav-link">Trade-In</a>
+      <a href="#contacts" class="mobile-nav-link">Контакти</a>
+      <button class="btn btn-primary btn-full" id="btn-mobile-test-drive">Записатися на тест-драйв</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Секція -->
+    <section class="hero" id="hero">
+      <div class="hero-bg">
+        <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1920&q=80" alt="Background">
+        <div class="hero-overlay"></div>
+      </div>
+
+      <div class="container hero-content">
+        <span class="badge badge-accent">
+          <i class="fa-solid fa-circle dot-pulse"></i> Офіційний дилер у Києві
+        </span>
+        <h1 class="hero-title">
+          Відкрийте свій новий рівень <span class="text-gradient">динаміки та комфорту</span>
+        </h1>
+        <p class="hero-description">
+          Найширший вибір нових автомобілів та авто з пробігом від провідних світових брендів. Гарантія якості, прозора історія та вигідне кредитування.
+        </p>
+        <div class="hero-buttons">
+          <a href="#catalog" class="btn btn-primary btn-lg">
+            Обрати авто <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="#calculator" class="btn btn-secondary btn-lg">
+            Розрахувати кредит
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секція Каталогу -->
+    <section class="section catalog-section" id="catalog">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Каталог Автомобілів</h2>
+          <p class="section-subtitle">Знайдіть авто, яке ідеально відповідає вашому стилю життя</p>
+        </div>
+
+        <!-- Панель фільтрів -->
+        <div class="filter-card">
+          <div class="filter-grid">
+            <div class="filter-group">
+              <label for="filter-brand" class="filter-label">Марка</label>
+              <select id="filter-brand" class="form-control">
+                <option value="all">Усі марки</option>
+                <option value="BMW">BMW</option>
+                <option value="Audi">Audi</option>
+                <option value="Mercedes-Benz">Mercedes-Benz</option>
+                <option value="Porsche">Porsche</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Ford">Ford</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label for="filter-condition" class="filter-label">Стан</label>
+              <select id="filter-condition" class="form-control">
+                <option value="all">Усі (Нові та з пробігом)</option>
+                <option value="new">Нові</option>
+                <option value="used">З пробігом</option>
+              </select>
+            </div>
+
+            <div class="filter-group filter-group-wide">
+              <div class="filter-label-between">
+                <span class="filter-label">Максимальна ціна</span>
+                <span id="price-limit-val" class="price-val">$150,000</span>
+              </div>
+              <input type="range" id="filter-price" min="20000" max="150000" step="5000" value="150000" class="range-slider">
+            </div>
+          </div>
+        </div>
+
+        <!-- Сітка авто -->
+        <div id="cars-grid" class="cars-grid"></div>
+      </div>
+    </section>
+
+    <!-- Кредитний калькулятор -->
+    <section class="section calc-section" id="calculator">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Кредитний Калькулятор</h2>
+          <p class="section-subtitle">Розрахуйте орієнтовний щомісячний платіж на вигідних умовах</p>
+        </div>
+
+        <div class="calc-wrapper">
+          <div class="calc-inputs">
+            <div class="range-group">
+              <div class="filter-label-between">
+                <span class="filter-label">Вартість автомобіля ($)</span>
+                <span id="calc-car-price-val" class="val-bold">$50,000</span>
+              </div>
+              <input type="range" id="calc-price" min="10000" max="150000" step="1000" value="50000" class="range-slider">
+            </div>
+
+            <div class="range-group">
+              <div class="filter-label-between">
+                <span class="filter-label">Перший внесок (%)</span>
+                <span id="calc-downpayment-val" class="val-bold">20% ($10,000)</span>
+              </div>
+              <input type="range" id="calc-downpayment" min="10" max="70" step="5" value="20" class="range-slider">
+            </div>
+
+            <div class="range-group">
+              <div class="filter-label-between">
+                <span class="filter-label">Термін кредитування (місяців)</span>
+                <span id="calc-term-val" class="val-bold">36 міс.</span>
+              </div>
+              <input type="range" id="calc-term" min="12" max="84" step="12" value="36" class="range-slider">
+            </div>
+
+            <div class="range-group">
+              <label for="calc-rate" class="filter-label">Річна відсоткова ставка (%)</label>
+              <input type="number" id="calc-rate" value="7.5" step="0.1" class="form-control">
+            </div>
+          </div>
+
+          <div class="calc-result-card">
+            <div>
+              <span class="tag-uppercase">Результат розрахунку</span>
+              <div class="result-main">
+                <span class="result-label">Орієнтовний платіж / міс.</span>
+                <div id="calc-monthly-payment" class="result-value">$1,244</div>
+              </div>
+
+              <div class="result-details">
+                <div class="result-row">
+                  <span>Сума кредиту:</span>
+                  <strong id="calc-loan-amount">$40,000</strong>
+                </div>
+                <div class="result-row">
+                  <span>Загальна переплата:</span>
+                  <strong id="calc-total-interest">$4,784</strong>
+                </div>
+                <div class="result-row">
+                  <span>Загальна сума виплат:</span>
+                  <strong id="calc-total-paid">$44,784</strong>
+                </div>
+              </div>
+            </div>
+
+            <button class="btn btn-primary btn-full btn-lg" id="btn-credit-apply">
+              Подати заявку на кредит
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секція Trade-In -->
+    <section class="section tradein-section" id="tradein">
+      <div class="container tradein-grid">
+        <div class="tradein-info">
+          <span class="tag-uppercase">Обмін авто</span>
+          <h2 class="section-title">Оцініть ваше авто за програмою Trade-In</h2>
+          <p class="tradein-desc">
+            Обміняйте свій старий автомобіль на новий швидко та безпечно. Ми пропонуємо ринкову оцінку та зараховуємо вартість як перший внесок.
+          </p>
+
+          <div class="steps-list">
+            <div class="step-item">
+              <div class="step-num">1</div>
+              <div>
+                <h4 class="step-title">Швидка онлайн-оцінка</h4>
+                <p class="step-desc">Введіть дані вашого авто для попереднього розрахунку</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">2</div>
+              <div>
+                <h4 class="step-title">Безкоштовний огляд</h4>
+                <p class="step-desc">Наші експерти перевірять стан авто в автосалоні</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">3</div>
+              <div>
+                <h4 class="step-title">Оформлення угоди</h4>
+                <p class="step-desc">Виїжджайте на новому авто в той самий день</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tradein-form-card">
+          <h3 class="form-title">Калькулятор оцінки авто</h3>
+          <form id="tradein-form">
+            <div class="form-group">
+              <label class="filter-label">Марка та модель</label>
+              <input type="text" placeholder="напр. Volkswagen Passat B8" required class="form-control">
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="filter-label">Рік випуску</label>
+                <input type="number" placeholder="2018" min="2000" max="2026" required class="form-control">
+              </div>
+              <div class="form-group">
+                <label class="filter-label">Пробіг (тис. км)</label>
+                <input type="number" placeholder="120" required class="form-control">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="filter-label">Ваш номер телефону</label>
+              <input type="tel" placeholder="+380 (__) ___-__-__" required class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary btn-full btn-lg">
+              Отримати оцінку
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Контакти -->
+    <section class="section contacts-section" id="contacts">
+      <div class="container contacts-grid">
+        <div class="contact-card">
+          <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div>
+            <h4 class="contact-title">Адреса</h4>
+            <p class="contact-text">м. Київ, вул. Велика Васильківська, 140</p>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon"><i class="fa-solid fa-clock"></i></div>
+          <div>
+            <h4 class="contact-title">Графік роботи</h4>
+            <p class="contact-text">Пн - Сб: 09:00 - 20:00<br>Нд: 10:00 - 18:00</p>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+          <div>
+            <h4 class="contact-title">Контакти</h4>
+            <p class="contact-text">+380 (44) 123-45-67<br>sales@autopremium.ua</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Футер -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="logo">
+        <div class="logo-icon logo-icon-sm">AP</div>
+        <span class="logo-text">AUTO<span class="highlight">PREMIUM</span></span>
+      </div>
+      <p class="copyright">© 2026 AutoPremium. Всі права захищені.</p>
+      <div class="socials">
+        <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#" class="social-link"><i class="fa-brands fa-telegram"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Модальне вікно: Деталі авто -->
+  <div class="modal-overlay" id="modal-details">
+    <div class="modal-content modal-lg">
+      <button class="modal-close" id="modal-details-close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="modal-body">
+        <img id="modal-car-image" src="" alt="Car Image" class="modal-car-img">
+        <div class="modal-header-row">
+          <div>
+            <h3 id="modal-car-title" class="modal-title"></h3>
+            <span id="modal-car-badge" class="badge"></span>
+          </div>
+          <div id="modal-car-price" class="modal-price"></div>
+        </div>
+
+        <div class="specs-grid">
+          <div class="spec-box">
+            <span class="spec-label">Розгін (0-100)</span>
+            <span id="modal-spec-accel" class="spec-value"></span>
+          </div>
+          <div class="spec-box">
+            <span class="spec-label">Потужність</span>
+            <span id="modal-spec-power" class="spec-value"></span>
+          </div>
+          <div class="spec-box">
+            <span class="spec-label">Привід</span>
+            <span id="modal-spec-drive" class="spec-value"></span>
+          </div>
+          <div class="spec-box">
+            <span class="spec-label">Пробіг</span>
+            <span id="modal-spec-mileage" class="spec-value"></span>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="desc-heading">Опис моделі</h4>
+          <p id="modal-car-desc" class="desc-text"></p>
+        </div>
+
+        <button class="btn btn-primary btn-full btn-lg" id="modal-details-action">
+          Записатися на тест-драйв цієї моделі
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Модальне вікно: Тест-драйв -->
+  <div class="modal-overlay" id="modal-test-drive">
+    <div class="modal-content modal-md">
+      <button class="modal-close" id="modal-test-drive-close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="modal-body">
+        <h3 class="modal-title">Запис на тест-драйв</h3>
+        <p class="modal-subtext">Заповніть форму, і наш менеджер зв'яжеться з вами для підтвердження часу.</p>
+
+        <form id="test-drive-form">
+          <div class="form-group">
+            <label class="filter-label">Ваше ім'я</label>
+            <input type="text" required placeholder="Олександр" class="form-control">
+          </div>
+          <div class="form-group">
+            <label class="filter-label">Телефон</label>
+            <input type="tel" required placeholder="+380 (__) ___-__-__" class="form-control">
+          </div>
+          <div class="form-group">
+            <label class="filter-label">Оберіть модель</label>
+            <select id="modal-car-select" class="form-control"></select>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full btn-lg">
+            Підтвердити запис
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Сповіщення -->
+  <div class="toast" id="toast">
+    <i class="fa-solid fa-circle-check toast-icon"></i>
+    <span id="toast-message" class="toast-text"></span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+</html>

@@ -1,0 +1,850 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* --- Базові стилі --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #0a0a0a;
+  color: #f5f5f5;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, select {
+  font-family: inherit;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding: 5rem 0;
+}
+
+/* --- Кнопки та Бейджі --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.75rem 1.25rem;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background-color: #dc2626;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(220, 38, 38, 0.3);
+}
+
+.btn-primary:hover {
+  background-color: #b91c1c;
+}
+
+.btn-secondary {
+  background-color: #171717;
+  border: 1px solid #262626;
+  color: #ffffff;
+}
+
+.btn-secondary:hover {
+  background-color: #262626;
+}
+
+.btn-lg {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+}
+
+.btn-full {
+  width: 100%;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.375rem 0.75rem;
+  border-radius: 9999px;
+}
+
+.badge-accent {
+  background-color: rgba(220, 38, 38, 0.1);
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  color: #ef4444;
+}
+
+.badge-green {
+  background-color: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  color: #4ade80;
+}
+
+.badge-amber {
+  background-color: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+}
+
+.dot-pulse {
+  font-size: 8px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* --- Навігація --- */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(23, 23, 23, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #262626;
+}
+
+.header-container {
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+
+.logo-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #dc2626;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.25rem;
+}
+
+.logo-icon-sm {
+  width: 2rem;
+  height: 2rem;
+  font-size: 0.875rem;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.highlight {
+  color: #dc2626;
+}
+
+.nav-desktop {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #d4d4d4;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: #ef4444;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.phone-link {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #a3a3a3;
+
+}
+
+.phone-link:hover {
+  color: #fff;
+}
+
+.icon-red {
+  color: #dc2626;
+  margin-right: 0.5rem;
+}
+
+.burger-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: #d4d4d4;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.mobile-menu {
+  display: none;
+  background-color: #171717;
+  border-bottom: 1px solid #262626;
+  padding: 1rem 1.5rem 1.5rem;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mobile-menu.open {
+  display: flex;
+}
+
+/* --- Hero --- */
+.hero {
+  position: relative;
+  padding-top: 11rem;
+  padding-bottom: 8rem;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.25;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, #0a0a0a, rgba(10, 10, 10, 0.6), transparent);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 48rem;
+  margin-left: 0;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin: 1.5rem 0;
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #ef4444, #b91c1c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+  color: #a3a3a3;
+  font-size: 1.25rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+/* --- Каталог --- */
+.section-header {
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+}
+
+.section-subtitle {
+  color: #a3a3a3;
+  margin-top: 0.5rem;
+}
+
+.filter-card {
+  background-color: #171717;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid #262626;
+  margin-bottom: 2.5rem;
+}
+
+.filter-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.filter-group-wide {
+  grid-column: span 2;
+}
+
+.filter-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #a3a3a3;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.filter-label-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.price-val {
+  color: #ef4444;
+  font-weight: 700;
+}
+
+.form-control {
+  width: 100%;
+  background-color: #0a0a0a;
+  border: 1px solid #262626;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  color: #fff;
+  font-size: 0.875rem;
+  outline: none;
+}
+
+.form-control:focus {
+  border-color: #dc2626;
+}
+
+.range-slider {
+  width: 100%;
+  accent-color: #dc2626;
+  height: 6px;
+  background: #0a0a0a;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.car-card {
+  background-color: #171717;
+  border: 1px solid #262626;
+  border-radius: 1rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: border-color 0.3s;
+}
+
+.car-card:hover {
+  border-color: #404040;
+}
+
+.car-img-wrapper {
+  position: relative;
+  height: 13rem;
+  overflow: hidden;
+}
+
+.car-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.car-card:hover .car-img-wrapper img {
+  transform: scale(1.05);
+}
+
+.car-badge-pos {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+}
+
+.car-info {
+  padding: 1.5rem;
+}
+
+.car-brand {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #ef4444;
+  text-transform: uppercase;
+}
+
+.car-model {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0.25rem 0 0.5rem;
+}
+
+.car-price {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.car-specs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: #a3a3a3;
+  border-top: 1px solid #262626;
+  padding-top: 1rem;
+}
+
+.car-actions {
+  padding: 0 1.5rem 1.5rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* --- Кредитний Калькулятор --- */
+.calc-section {
+  background-color: #171717;
+  border-top: 1px solid #262626;
+  border-bottom: 1px solid #262626;
+}
+
+.calc-wrapper {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: 2.5rem;
+}
+
+.calc-inputs {
+  background-color: #0a0a0a;
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid #262626;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.val-bold {
+  color: #fff;
+  font-weight: 700;
+}
+
+.calc-result-card {
+  background: linear-gradient(135deg, rgba(127, 29, 29, 0.3), #0a0a0a);
+  border: 1px solid rgba(185, 28, 28, 0.3);
+  padding: 2rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tag-uppercase {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #ef4444;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.result-main {
+  margin: 1rem 0 1.5rem;
+}
+
+.result-label {
+  color: #a3a3a3;
+  font-size: 0.875rem;
+}
+
+.result-value {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.result-details {
+  border-top: 1px solid #262626;
+  padding-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: #a3a3a3;
+}
+
+.result-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.result-row strong {
+  color: #fff;
+}
+
+/* --- Trade-In --- */
+.tradein-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.tradein-desc {
+  color: #a3a3a3;
+  font-size: 1.125rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.step-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.step-num {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #171717;
+  border: 1px solid #262626;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ef4444;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.step-title {
+  font-weight: 600;
+}
+
+.step-desc {
+  font-size: 0.875rem;
+  color: #a3a3a3;
+}
+
+.tradein-form-card {
+  background-color: #171717;
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid #262626;
+}
+
+.form-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* --- Контакти & Футер --- */
+.contacts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.contact-card {
+  background-color: #171717;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid #262626;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.contact-icon {
+  width: 3rem;
+  height: 3rem;
+  background-color: rgba(220, 38, 38, 0.1);
+  color: #ef4444;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.contact-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.contact-text {
+  font-size: 0.875rem;
+  color: #a3a3a3;
+  margin-top: 0.25rem;
+}
+
+.footer {
+  background-color: #171717;
+  border-top: 1px solid #262626;
+  padding: 2.5rem 0;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.copyright {
+  font-size: 0.875rem;
+  color: #737373;
+}
+
+.socials {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.25rem;
+  color: #a3a3a3;
+}
+
+.social-link:hover {
+  color: #ef4444;
+}
+
+/* --- Модальні вікна --- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal-overlay.open {
+  display: flex;
+}
+
+.modal-content {
+  background-color: #171717;
+  border: 1px solid #262626;
+  border-radius: 1rem;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.modal-lg { max-width: 48rem; }
+.modal-md { max-width: 28rem; }
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: rgba(10, 10, 10, 0.8);
+  border-radius: 9999px;
+  border: none;
+  color: #a3a3a3;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-close:hover {
+  color: #fff;
+}
+
+.modal-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-car-img {
+  width: 100%;
+  height: 18rem;
+  object-fit: cover;
+  border-radius: 0.75rem;
+}
+
+.modal-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.modal-price {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #ef4444;
+}
+
+.modal-subtext {
+  font-size: 0.875rem;
+  color: #a3a3a3;
+}
+
+.specs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding: 1rem 0;
+  border-top: 1px solid #262626;
+  border-bottom: 1px solid #262626;
+}
+
+.spec-box {
+  background-color: #0a0a0a;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+}
+
+.spec-label {
+  display: block;
+  font-size: 0.75rem;
+  color: #737373;
+}
+
+.spec-value {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.desc-heading {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.desc-text {
+  font-size: 0.875rem;
+  color: #a3a3a3;
+}
+
+/* --- Toast --- */
+.toast {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 300;
+  background-color: #171717;
+  border: 1px solid rgba(220, 38, 38, 0.4);
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  display: none;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.toast.open {
+  display: flex;
+}
+
+.toast-icon {
+  color: #ef4444;
+  font-size: 1.25rem;
+}
+
+.toast-text {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* --- Адаптивність (Медіа-запити) --- */
+@media (max-width: 1024px) {
+  .cars-grid { grid-template-columns: repeat(2, 1fr); }
+  .calc-wrapper { grid-template-columns: 1fr; }
+  .tradein-grid { grid-template-columns: 1fr; }
+  .filter-grid { grid-template-columns: repeat(2, 1fr); }
+  .filter-group-wide { grid-column: span 2; }
+}
+
+@media (max-width: 768px) {
+  .nav-desktop, .header-actions { display: none; }
+  .burger-btn { display: block; }
+  .hero-title { font-size: 2.5rem; }
+  .cars-grid { grid-template-columns: 1fr; }
+  .contacts-grid { grid-template-columns: 1fr; }
+  .filter-grid { grid-template-columns: 1fr; }
+  .filter-group-wide { grid-column: span 1; }
+  .specs-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-container { flex-direction: column; gap: 1rem; text-align: center; }
+}
